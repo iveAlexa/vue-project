@@ -1,5 +1,11 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
+import StudentView from "@/views/users/UserView.vue";
+import StudentCreateView from "@/views/users/UserCreateView.vue";
+import StudentEditView from "@/views/users/UserEditView.vue";
+import UserView from "@/views/users/UserView.vue";
+import UserCreateView from "@/views/users/UserCreateView.vue";
+import UserEditView from "@/views/users/UserEditView.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -16,7 +22,26 @@ const router = createRouter({
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
       component: () => import('../views/AboutView.vue')
-    }
+    },
+
+    {
+      path: '/users',
+      name: 'user',
+      component: UserView
+    },
+
+    {
+      path: '/users/create',
+      name: 'usersCreate',
+      component: UserCreateView
+    },
+
+    {
+      path: '/users/:id/edit',
+      name: 'userEdit',
+      component: UserEditView
+    },
+
   ]
 })
 
